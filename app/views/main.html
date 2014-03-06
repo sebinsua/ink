@@ -10,13 +10,15 @@
 </div>
 
 <div class="wrapper">
-  <div class-"selector">
-    <ul>
-      <li ng-class="{selected: city == selectedCity}" ng-repeat="city in cities" ng-click="changeCity(city)"><a>{{ city }}</a></li>
+  <div class="left-pane">
+    <ul class="selector">
+      <li ng-class="{selected: city == selectedCity}" ng-repeat="city in cities" ng-click="changeCity(city)">
+        <a href="">{{ city }}</a>
+      </li>
     </ul>
   </div>
-  <div class="info">
-    <dl>
+  <div class="right-pane">
+    <dl class="info">
       <dt>Name</dt>
       <dd>{{ currentCity.name }}</dd>
 

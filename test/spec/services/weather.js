@@ -16,6 +16,7 @@ describe('Service: Weather', function () {
   });
 
   it('should throw an error if you do not pass in a cityName', function () {
+    expect(Weather.getCurrentWeather).toExist();
     expect(function () {
       Weather.getCurrentWeather();
     }).toThrow();
