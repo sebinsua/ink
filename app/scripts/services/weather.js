@@ -3,7 +3,7 @@
 angular.module('inkApp')
   .service('Weather', ['$http', function Weather($http) {
     // AngularJS will instantiate a singleton by calling "new" on this function
-    this.getCurrentWeather = function (cityName, callback) {
+    this.getCurrentWeather = function (cityName, successCallback, errorCallback) {
       if (!cityName) {
         throw new Error('No cityName supplied to getCurrentWeather.');
       }
@@ -27,8 +27,11 @@ angular.module('inkApp')
           'temperatureMax': (data.main['temp_max'] - 273.15).toFixed(2),
           'atmosphericPressure': data.main.pressure,
           'humidity': data.main.humidity,
+          'clouds': data.clouds.all,
+          'windSpeed': data.wind.speed,
+          'windAngle': data.wind.deg
         };
-        callback(currentCity);
-      });
+        successCallback(currentCity);
+      }).error(errorCallback);
     };
   }]);

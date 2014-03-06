@@ -18,7 +18,8 @@
     </ul>
   </div>
   <div class="right-pane">
-    <dl class="info">
+    <span ng-show="loading">Loading...</span>
+    <dl ng-hide="error || loading" class="info">
       <dt>Name</dt>
       <dd>{{ currentCity.name }}</dd>
 
@@ -41,7 +42,14 @@
 
       <dt>Current Humidity (%)</dt>
       <dd>{{ currentCity.humidity }}</dd>
+
+      <dt>Current Clouds (%)</dt>
+      <dd>{{ currentCity.clouds }}</dd>
+
+      <dt>Wind</dt>
+      <dd>{{ currentCity.windSpeed }}mps {{ currentCity.windAngle ? ' at ' + currentCity.windAngle +  '&deg;' : ''  }}</dd>
     </dl>
+    <span ng-show="error" class="error-message">Error fetching from the server.</span>
   </div>
 </div>
 
