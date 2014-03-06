@@ -10,7 +10,8 @@ angular.module('inkApp')
 
       var url = 'http://api.openweathermap.org/data/2.5/weather', query = '';
       if (cityName) {
-        query = '?q=' + cityName + ',GB';
+        var countryName = 'GB';
+        query = '?q=' + cityName + ',' + countryName;
       }
 
       return $http.get(url + query).success(function (data) {
@@ -21,9 +22,9 @@ angular.module('inkApp')
           'location': data.coord.lat + ', ' + data.coord.lon,
           'weatherConditions': weather.description,
           'icon': 'http://openweathermap.org/img/w/' + weather.icon + '.png',
-          'temperature': data.main.temp - 273.15,
-          'temperatureMin': data.main['temp_min'] - 273.15,
-          'temperatureMax': data.main['temp_max'] - 273.15,
+          'temperature': (data.main.temp - 273.15).toFixed(2),
+          'temperatureMin': (data.main['temp_min'] - 273.15).toFixed(2),
+          'temperatureMax': (data.main['temp_max'] - 273.15).toFixed(2),
           'atmosphericPressure': data.main.pressure,
           'humidity': data.main.humidity,
         };
