@@ -1,0 +1,50 @@
+<div class="header">
+  <ul class="nav nav-pills pull-right">
+    <li class="active"><a ng-href="#">Home</a></li>
+    <li><a ng-href="#">About</a></li>
+    <li><a ng-href="#">Contact</a></li>
+  </ul>
+  <h3 class="text-muted">ink</h3>
+</div>
+
+<div class="jumbotron">
+  <h1>Ink Developer Test</h1>
+</div>
+
+<div class="wrapper">
+  <div class-"selector">
+    <ul>
+      <li ng-class="{selected: city == selectedCity}" ng-repeat="city in cities" ng-click="changeCity(city)"><a>{{ city }}</a></li>
+    </ul>
+  </div>
+  <div class="info">
+    <dl>
+      <dt>Name</dt>
+      <dd>{{ currentCity.name }}</dd>
+
+      <dt>Location (lat, lng)</dt>
+      <dd>{{ currentCity.location }}</dd>
+
+      <dt>Current Weather Conditions</dt>
+      <dd>{{ currentCity.weatherConditions }}</dd>
+
+      <dt>Icon</dt>
+      <dd><img src="{{ currentCity.icon }}" /></dd>
+
+      <dt>Temperature and Range (&deg;C)</dt>
+      <dd>{{ currentCity.temperature }}
+          ({{currentCity.temperatureMin}} &mdash;
+           {{currentCity.temperatureMax}})</dd>
+
+      <dt>Current Atmospheric Pressure (hPa)</dt>
+      <dd>{{ currentCity.atmosphericPressure }}</dd>
+
+      <dt>Current Humidity (%)</dt>
+      <dd>{{ currentCity.humidity }}</dd>
+    </dl>
+  </div>
+</div>
+
+<div class="footer">
+  <p>♥ from the Yeoman team</p>
+</div>
